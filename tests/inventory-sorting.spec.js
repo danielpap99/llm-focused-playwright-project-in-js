@@ -1,4 +1,4 @@
-const { test, expect } = require('./baseTest');
+const { test, expect } = require('./base-test');
 
 test('Inventory is sorted alphabetically by default', async ({ page, loginPage, inventoryPage }) => {
   await loginPage.login('standard_user', 'secret_sauce');

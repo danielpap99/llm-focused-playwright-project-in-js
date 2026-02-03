@@ -1,4 +1,4 @@
-const { test, expect } = require('./baseTest');
+const { test, expect } = require('./base-test');
 
 test('Log-in page loads correctly', async ({ page, loginPage }) => {
   await page.goto('https://www.saucedemo.com/');
