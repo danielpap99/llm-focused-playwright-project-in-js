@@ -10,7 +10,7 @@ const test = baseTest.extend({
   },
 
   browser: async ({ browserName }, use) => {
-    let headlessStatus = false;
+    let headlessStatus = true;
     let browser;
 
     if (browserName === 'chromium') {
