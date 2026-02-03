@@ -18,5 +18,3 @@ Throughout the process I also experiment with Playwright's built-in testing tool
 - Trace Viewer
 
 This project is a work in progress, focused on learning, exploring, and experimenting with different techniques and approaches. Feel free to reach out if you have any comments or suggestions. Constructive criticism is always welcome!
-
-//github actions test//
