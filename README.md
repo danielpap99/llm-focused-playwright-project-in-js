@@ -1,6 +1,5 @@
 # MCP Playwright Project in JS/TS
-**Created by Daniel Pap**  
-[LinkedIn](https://www.linkedin.com/in/danielpap1999/)
+**Created by Daniel Pap - https://www.linkedin.com/in/danielpap1999/**
 
 Project Overview
 This repository contains an automated Playwright test suite written in JS/TS. The project serves as a practice suite to explore MCP and AI-powered test automation posibilities, using a variety of tools
