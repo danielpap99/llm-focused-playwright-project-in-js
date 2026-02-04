@@ -36,3 +36,5 @@ When I ask you to remove steps from a test, make sure you remove any locators an
 If methods return exact values, use toBe for exact matching. Only use toContain when we're looking for a partial text match.
 
 There is no need to assign assert methods to a local const variable. You can directly use them in the expect statements to make tests more streamlined and easier to read.
+
+NEVER assume locators. Always navigate to the website to get actual locators.
