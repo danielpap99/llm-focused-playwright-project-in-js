@@ -9,7 +9,7 @@ test.describe('Add to Cart Functionality', () => {
     await inventoryPage.addBackpackToCart();
     await inventoryPage.addBikeLightToCart();
     
-    await expect(await inventoryPage.getCartCount()).toBe('2');
+    await expect(await inventoryPage.cartCount()).toBe('2');
     
     await expect(await inventoryPage.isBackpackAddToCartButtonVisible()).toBe(false);
     await expect(await inventoryPage.isBikeLightAddToCartButtonVisible()).toBe(false);

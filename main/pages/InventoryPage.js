@@ -27,6 +27,10 @@ class InventoryPage {
   async addBikeLightToCart() {
     await this.addToCartBikeLightButton.click();
   }
+  
+  async goToCart() {
+    await this.shoppingCartIcon.click();
+  }
   // #endregion
 
   // #region Asserts
@@ -37,7 +41,7 @@ class InventoryPage {
   async inventoryItemPricesList() { return await this.inventoryItemPrices.allTextContents(); }
   async currentSortOption() { return await this.sortContainer.inputValue(); }
   
-  async getCartCount() { 
+  async cartCount() { 
     return await this.shoppingCartIcon.textContent();
   }
   
