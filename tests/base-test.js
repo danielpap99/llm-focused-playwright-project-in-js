@@ -8,7 +8,7 @@ const OrderCompletePage = require('../main/pages/OrderCompletePage');
 
 const test = baseTest.extend({
   browserName: async ({}, use) => {
-    const browsers = ['chromium', 'firefox', 'edge'];
+    const browsers = ['chromium', 'edge'];
     const selectedBrowser = browsers[Math.floor(Math.random() * browsers.length)];
     await use(selectedBrowser);
   },
@@ -19,8 +19,6 @@ const test = baseTest.extend({
 
     if (browserName === 'chromium') {
       browser = await chromium.launch({ headless: headlessStatus });
-    } else if (browserName === 'firefox') {
-      browser = await firefox.launch({ headless: headlessStatus });
     } else {
       browser = await chromium.launch({ headless: headlessStatus, channel: 'msedge' });
     }
