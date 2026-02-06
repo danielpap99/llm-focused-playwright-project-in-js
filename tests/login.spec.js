@@ -18,7 +18,7 @@ test.describe('Login Functionality', () => {
   });
 
   test('User cannot log in with invalid username', async ({ page, loginPage, inventoryPage }) => {
-    await loginPage.login('invalid_username', 'secret_sauce')
+    await loginPage.login('invalid_username', 'secret_sauce');
 
     await expect(await loginPage.errorMessageIsVisible()).toBe(true);
     await expect(await loginPage.getErrorMessageText()).toBe('Epic sadface: Username and password do not match any user in this service');
