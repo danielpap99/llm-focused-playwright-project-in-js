@@ -1,23 +1,31 @@
 const { test, expect } = require('./base-test');
+const SauceLabsHomePage = require('../main/pages/SauceLabsHomePage');
+const SauceLabsSignInPage = require('../main/pages/SauceLabsSignInPage');
 
 test.describe('Sauce Labs sign in opens a new tab', () => {
 
   test('Sign in option on sauce labs opens a  new tab', async ({ page, context }) => {
-    await page.goto('https://saucelabs.com/');
+    // Initialize page objects
+    const homePage = new SauceLabsHomePage(page);
     
-    // Set up promise to wait for new page before clicking
+    // Navigate to Sauce Labs home page
+    await homePage.navigate();
+    
+    // Set up listener for new page before clicking
     const pagePromise = context.waitForEvent('page');
     
-    await page.getByRole('button', { name: 'Sign in' }).click();
+    // Click sign in button
+    await homePage.clickSignIn();
     
-    // Wait for new tab to open
+    // Handle the new page that opens
     const newPage = await pagePromise;
-    await newPage.waitForLoadState('networkidle');
+    const signInPage = new SauceLabsSignInPage(newPage);
     
-    // Verify URL contains accounts.saucelabs.com
-    expect(newPage.url()).toContain('accounts.saucelabs.com/');
+    // Wait for sign-in page to load and verify URL
+    await signInPage.waitForPageToLoad();
+    expect(await signInPage.isOnSignInPage()).toBeTruthy();
     
-    // Clean up - close the new tab
-    await newPage.close();
+    // Close the sign-in page
+    await signInPage.close();
   });
 });
