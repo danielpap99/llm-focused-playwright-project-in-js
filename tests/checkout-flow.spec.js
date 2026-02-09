@@ -15,32 +15,32 @@ test.describe("Checkout Flow Functionality", () => {
     await inventoryPage.addBackpackToCart();
     await inventoryPage.goToCart();
 
-    await expect(await cartPage.cartItemCount()).toBe(1);
-    await expect((await cartPage.cartItemNamesList())[0]).toBe("Sauce Labs Backpack");
-    await expect((await cartPage.cartItemPricesList())[0]).toBe("$29.99");
+    await expect(cartPage.cartItems).toHaveCount(1);
+    await expect(cartPage.cartItemNames.first()).toHaveText("Sauce Labs Backpack");
+    await expect(cartPage.cartItemPrices.first()).toHaveText("$29.99");
 
     await cartPage.proceedToCheckout();
 
     await checkoutInformationPage.fillCheckoutInformation("Dan", "P", "1111");
     await checkoutInformationPage.continueToOverview();
 
-    await expect((await checkoutOverviewPage.orderItemNamesList())[0]).toBe("Sauce Labs Backpack");
-    await expect((await checkoutOverviewPage.orderItemPricesList())[0]).toBe("$29.99");
-    await expect(await checkoutOverviewPage.paymentInfoText()).toBe("SauceCard #31337");
-    await expect(await checkoutOverviewPage.shippingInfoText()).toBe("Free Pony Express Delivery!");
-    await expect(await checkoutOverviewPage.subtotalText()).toBe("Item total: $29.99");
-    await expect(await checkoutOverviewPage.taxText()).toBe("Tax: $2.40");
-    await expect(await checkoutOverviewPage.totalText()).toBe("Total: $32.39");
+    await expect(checkoutOverviewPage.orderItemNames.first()).toHaveText("Sauce Labs Backpack");
+    await expect(checkoutOverviewPage.orderItemPrices.first()).toHaveText("$29.99");
+    await expect(checkoutOverviewPage.paymentInfo).toHaveText("SauceCard #31337");
+    await expect(checkoutOverviewPage.shippingInfo).toHaveText("Free Pony Express Delivery!");
+    await expect(checkoutOverviewPage.subtotalLabel).toHaveText("Item total: $29.99");
+    await expect(checkoutOverviewPage.taxLabel).toHaveText("Tax: $2.40");
+    await expect(checkoutOverviewPage.totalLabel).toHaveText("Total: $32.39");
 
     await checkoutOverviewPage.finishOrder();
 
-    await expect(await orderCompletePage.orderCompleteHeaderText()).toBe("Thank you for your order!");
-    await expect(await orderCompletePage.isPonyExpressImageVisible()).toBe(true);
-    await expect(await orderCompletePage.isBackToProductsButtonVisible()).toBe(true);
+    await expect(orderCompletePage.orderCompleteHeader).toHaveText("Thank you for your order!");
+    await expect(orderCompletePage.ponyExpressImage).toBeVisible();
+    await expect(orderCompletePage.backToProductsButton).toBeVisible();
 
     await orderCompletePage.backToProducts();
 
-    await expect(await inventoryPage.inventoryIsVisible()).toBe(true);
-    await expect(await inventoryPage.cartCount()).toBe("");
+    await expect(inventoryPage.inventoryContainer).toBeVisible();
+    await expect(inventoryPage.shoppingCartIcon).toHaveText("");
   });
 });
