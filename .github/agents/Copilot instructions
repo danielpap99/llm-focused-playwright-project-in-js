@@ -15,12 +15,12 @@ Always do the following:
 
 For assert methods, don't name them as get methods because they don't sound natural when you assert. Just name them exactly as they are. For example, if it returns the text of a button, call it buttonText(). Create them in the following format (use these as an example):
 
-async shoppingCartItemCount() { 
-  return await this.removeBackpackButton.textContent();
+async shoppingCartItemCount() {
+return await this.removeBackpackButton.textContent();
 }
 
-async isRemoveBackpackButtonVisible() { 
-  return await this.removeBackpackButton.isVisible();
+async isRemoveBackpackButtonVisible() {
+return await this.removeBackpackButton.isVisible();
 }
 
 Never actually assert in the page object. You always assert in the test itself, by calling the assert methods
@@ -38,3 +38,7 @@ If methods return exact values, use toBe for exact matching. Only use toContain 
 There is no need to assign assert methods to a local const variable. You can directly use them in the expect statements to make tests more streamlined and easier to read.
 
 NEVER assume locators. Always navigate to the website to get actual locators.
+
+NEVER leave console.log statements in tests or page objects. Remove any console.log statements before completing your work.
+
+IMPORTANT: Only create what is specifically requested. If the user asks for ONE test, create only ONE test. If they ask for a specific method, create only that method. Do not add extra tests, methods, or functionality that wasn't explicitly requested.
