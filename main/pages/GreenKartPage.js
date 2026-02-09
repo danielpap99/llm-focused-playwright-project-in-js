@@ -117,14 +117,6 @@ class GreenKartPage {
     await dayButton.waitFor({ state: "visible", timeout: 5000 });
     await dayButton.click();
   }
-
-  async isCalendarVisible() {
-    return await this.calendar.isVisible();
-  }
-
-  async getCurrentMonthYear() {
-    return await this.navigationLabel.textContent();
-  }
 }
 
 module.exports = GreenKartPage;

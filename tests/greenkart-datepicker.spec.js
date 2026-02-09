@@ -9,14 +9,13 @@ test.describe("GreenKart Date Picker Tests", () => {
 
     await greenKartPage.navigateToOffers();
 
-    expect(await greenKartPage.isCalendarVisible()).toBe(false);
+    await expect(greenKartPage.calendar).not.toBeVisible();
 
     await greenKartPage.openCalendar();
 
-    expect(await greenKartPage.isCalendarVisible()).toBe(true);
+    await expect(greenKartPage.calendar).toBeVisible();
 
-    const currentMonthYear = await greenKartPage.getCurrentMonthYear();
-    expect(currentMonthYear).toContain("2026");
+    await expect(greenKartPage.navigationLabel).toContainText("2026");
   });
 
   test("should be able to select July 8th, 1999 in the date picker", async ({ page }) => {

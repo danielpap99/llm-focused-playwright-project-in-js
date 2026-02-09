@@ -5,21 +5,11 @@ class SauceLabsSignInPage {
 
   // #region Actions
   async waitForPageToLoad() {
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
-  
+
   async close() {
     await this.page.close();
-  }
-  // #endregion
-
-  // #region Asserts
-  async isOnSignInPage() {
-    return this.page.url().includes('accounts.saucelabs.com/');
-  }
-  
-  getUrl() {
-    return this.page.url();
   }
   // #endregion
 }
