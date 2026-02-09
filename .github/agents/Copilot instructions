@@ -41,4 +41,8 @@ NEVER assume locators. Always navigate to the website to get actual locators.
 
 NEVER leave console.log statements in tests or page objects. Remove any console.log statements before completing your work.
 
+NEVER EVER add hardcoded waitForTimeout() calls. Use Playwright's automatic waiting mechanisms or proper element state waits instead. waitForTimeout() is bad practice and should NOT be added.
+
+For expect statements: If page object methods return promises (like async cartItemCount()), use await expect(await method()) to resolve the value before comparison. If methods return locators directly, use await expect(locator).toHaveText().
+
 IMPORTANT: Only create what is specifically requested. If the user asks for ONE test, create only ONE test. If they ask for a specific method, create only that method. Do not add extra tests, methods, or functionality that wasn't explicitly requested.

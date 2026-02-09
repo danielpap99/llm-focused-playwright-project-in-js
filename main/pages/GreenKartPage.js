@@ -60,8 +60,6 @@ class GreenKartPage {
     const maxAttempts = 50;
 
     while (attempts < maxAttempts) {
-      await this.page.waitForTimeout(200);
-
       const currentLabelText = await this.navigationLabel.textContent();
       const currentYear = parseInt(currentLabelText.split(" ")[1]);
 
@@ -69,10 +67,8 @@ class GreenKartPage {
         break;
       } else if (currentYear > targetYear) {
         await this.previousYearButton.click();
-        await this.page.waitForTimeout(100);
       } else {
         await this.nextYearButton.click();
-        await this.page.waitForTimeout(100);
       }
 
       attempts++;
@@ -88,8 +84,6 @@ class GreenKartPage {
     const maxAttempts = 24;
 
     while (attempts < maxAttempts) {
-      await this.page.waitForTimeout(200);
-
       const currentLabelText = await this.navigationLabel.textContent();
       const currentMonthName = currentLabelText.split(" ")[0].toLowerCase();
       const currentYear = parseInt(currentLabelText.split(" ")[1]);
@@ -101,10 +95,8 @@ class GreenKartPage {
         break;
       } else if (currentYear > targetYear || (currentYear === targetYear && currentMonth > targetMonth)) {
         await this.previousMonthButton.click();
-        await this.page.waitForTimeout(100);
       } else {
         await this.nextMonthButton.click();
-        await this.page.waitForTimeout(100);
       }
 
       attempts++;

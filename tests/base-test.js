@@ -7,7 +7,7 @@ const CheckoutOverviewPage = require("../main/pages/CheckoutOverviewPage");
 const OrderCompletePage = require("../main/pages/OrderCompletePage");
 
 const test = baseTest.extend({
-  browserName: async (use) => {
+  browserName: async ({}, use) => {
     const browsers = ["chromium", "edge"];
     const selectedBrowser = browsers[Math.floor(Math.random() * browsers.length)];
     await use(selectedBrowser);
@@ -36,7 +36,6 @@ const test = baseTest.extend({
   },
 
   page: async ({ context, browserName }, use, testInfo) => {
-    console.log(`Running test "${testInfo.title}" on ${browserName}`);
     const page = await context.newPage();
     await use(page);
     await page.close();

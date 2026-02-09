@@ -11,11 +11,12 @@ export default defineConfig([
       globals: globals.node
     },
     rules: {
-      "semi": ["error", "always"],               // require semicolons
-      "indent": ["error", 2],                   // enforce 2-space indentation
-      "no-console": "warn",                       // warn on console statements
-      "comma-dangle": ["error", "never"],       // disallow trailing commas
-      "no-unused-vars": ["warn"]               // warn on unused variables
+      semi: ["error", "always"], // require semicolons
+      indent: ["error", 2], // enforce 2-space indentation
+      "no-console": "warn", // warn on console statements
+      "comma-dangle": ["error", "never"], // disallow trailing commas
+      "no-unused-vars": ["warn"], // warn on unused variables
+      "no-empty-pattern": "off" // allow empty object patterns (needed for Playwright fixtures)
     }
   }
 ]);
