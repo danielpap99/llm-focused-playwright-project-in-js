@@ -45,4 +45,6 @@ NEVER EVER add hardcoded waitForTimeout() calls. Use Playwright's automatic wait
 
 For expect statements: If page object methods return promises (like async cartItemCount()), use await expect(await method()) to resolve the value before comparison. If methods return locators directly, use await expect(locator).toHaveText().
 
+ALWAYS try to use the locator-returning methods in expect statements. You can then assert directly on these locators in the tests. Only create value-returning methods when it makes sense in the context, for example with allTextContent()
+
 IMPORTANT: Only create what is specifically requested. If the user asks for ONE test, create only ONE test. If they ask for a specific method, create only that method. Do not add extra tests, methods, or functionality that wasn't explicitly requested.
