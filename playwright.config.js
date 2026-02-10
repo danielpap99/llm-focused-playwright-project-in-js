@@ -1,18 +1,19 @@
-const config = ({
-  testDir: './tests',
+const config = {
+  testDir: "./tests",
+  outputDir: "./test-results",
 
   timeout: 10000,
-  
-  expect : {
+
+  expect: {
     timeout: 5000
   },
 
-  reporter: 'html',
-  
+  reporter: "html",
+
   use: {
-    trace: 'on',
-  },
-});
+    trace: "on",
+    screenshot: "only-on-failure"
+  }
+};
 
 module.exports = config;
-
