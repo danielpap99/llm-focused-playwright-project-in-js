@@ -11,7 +11,7 @@ const config = {
   reporter: "html",
 
   use: {
-    trace: "on",
+    trace: "retain-on-failure",
     screenshot: "only-on-failure"
   }
 };
