@@ -32,4 +32,12 @@ test.describe("Login Functionality", () => {
     await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username and password do not match any user in this service");
     await expect(inventoryPage.inventoryContainer).not.toBeVisible();
   });
+
+  test("User cannot log in with empty username and password fields", async ({ page, loginPage, inventoryPage }) => {
+    await loginPage.login("", "");
+
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username is required");
+    await expect(inventoryPage.inventoryContainer).not.toBeVisible();
+  });
 });
