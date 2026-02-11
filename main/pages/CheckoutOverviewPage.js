@@ -23,16 +23,6 @@ class CheckoutOverviewPage {
     await this.cancelButton.click();
   }
   // #endregion
-
-  // #region Asserts
-  async isFinishButtonVisible() {
-    return await this.finishButton.isVisible();
-  }
-
-  async isCancelButtonVisible() {
-    return await this.cancelButton.isVisible();
-  }
-  // #endregion
 }
 
 module.exports = CheckoutOverviewPage;

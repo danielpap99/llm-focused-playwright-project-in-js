@@ -31,16 +31,6 @@ class InventoryPage {
     await this.shoppingCartIcon.click();
   }
   // #endregion
-
-  // #region Asserts
-  async inventoryIsVisible() {
-    return await this.inventoryContainer.isVisible();
-  }
-
-  async cartCount() {
-    return await this.shoppingCartIcon.textContent();
-  }
-  // #endregion
 }
 
 module.exports = InventoryPage;
