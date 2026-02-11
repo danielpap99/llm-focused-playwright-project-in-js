@@ -1,37 +1,18 @@
 class CheckoutOverviewPage {
   constructor(page) {
     this.page = page;
-  }
 
-  // #region Locators
-  get finishButton() {
-    return this.page.locator('[data-test="finish"]');
+    // Locators
+    this.finishButton = page.locator('[data-test="finish"]');
+    this.cancelButton = page.locator('[data-test="cancel"]');
+    this.orderItemNames = page.locator(".inventory_item_name");
+    this.orderItemPrices = page.locator(".inventory_item_price");
+    this.subtotalLabel = page.locator(".summary_subtotal_label");
+    this.taxLabel = page.locator(".summary_tax_label");
+    this.totalLabel = page.locator(".summary_total_label");
+    this.paymentInfo = page.locator('[data-test="payment-info-value"]');
+    this.shippingInfo = page.locator('[data-test="shipping-info-value"]');
   }
-  get cancelButton() {
-    return this.page.locator('[data-test="cancel"]');
-  }
-  get orderItemNames() {
-    return this.page.locator(".inventory_item_name");
-  }
-  get orderItemPrices() {
-    return this.page.locator(".inventory_item_price");
-  }
-  get subtotalLabel() {
-    return this.page.locator(".summary_subtotal_label");
-  }
-  get taxLabel() {
-    return this.page.locator(".summary_tax_label");
-  }
-  get totalLabel() {
-    return this.page.locator(".summary_total_label");
-  }
-  get paymentInfo() {
-    return this.page.locator('[data-test="payment-info-value"]');
-  }
-  get shippingInfo() {
-    return this.page.locator('[data-test="shipping-info-value"]');
-  }
-  // #endregion
 
   // #region Actions
   async finishOrder() {

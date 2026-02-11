@@ -1,22 +1,13 @@
 class OrderCompletePage {
   constructor(page) {
     this.page = page;
-  }
 
-  // #region Locators
-  get backToProductsButton() {
-    return this.page.locator('[data-test="back-to-products"]');
+    // Locators
+    this.backToProductsButton = page.locator('[data-test="back-to-products"]');
+    this.orderCompleteHeader = page.locator(".complete-header");
+    this.orderCompleteText = page.locator(".complete-text");
+    this.ponyExpressImage = page.locator(".pony_express");
   }
-  get orderCompleteHeader() {
-    return this.page.locator(".complete-header");
-  }
-  get orderCompleteText() {
-    return this.page.locator(".complete-text");
-  }
-  get ponyExpressImage() {
-    return this.page.locator(".pony_express");
-  }
-  // #endregion
 
   // #region Actions
   async backToProducts() {

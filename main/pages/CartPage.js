@@ -1,28 +1,15 @@
 class CartPage {
   constructor(page) {
     this.page = page;
-  }
 
-  // #region Locators
-  get continueShoppingButton() {
-    return this.page.locator('[data-test="continue-shopping"]');
+    // Locators
+    this.continueShoppingButton = page.locator('[data-test="continue-shopping"]');
+    this.checkoutButton = page.locator('[data-test="checkout"]');
+    this.removeBackpackButton = page.locator('[data-test="remove-sauce-labs-backpack"]');
+    this.cartItems = page.locator(".cart_item");
+    this.cartItemNames = page.locator(".inventory_item_name");
+    this.cartItemPrices = page.locator(".inventory_item_price");
   }
-  get checkoutButton() {
-    return this.page.locator('[data-test="checkout"]');
-  }
-  get removeBackpackButton() {
-    return this.page.locator('[data-test="remove-sauce-labs-backpack"]');
-  }
-  get cartItems() {
-    return this.page.locator(".cart_item");
-  }
-  get cartItemNames() {
-    return this.page.locator(".inventory_item_name");
-  }
-  get cartItemPrices() {
-    return this.page.locator(".inventory_item_price");
-  }
-  // #endregion
 
   // #region Actions
   async continueShopping() {

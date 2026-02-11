@@ -1,19 +1,12 @@
 class RahulShettyPracticePage {
   constructor(page) {
     this.page = page;
-  }
 
-  // #region Locators
-  get hideButton() {
-    return this.page.locator("#hide-textbox");
+    // Locators
+    this.hideButton = page.locator("#hide-textbox");
+    this.showButton = page.locator("#show-textbox");
+    this.displayedTextBox = page.locator("#displayed-text");
   }
-  get showButton() {
-    return this.page.locator("#show-textbox");
-  }
-  get displayedTextBox() {
-    return this.page.locator("#displayed-text");
-  }
-  // #endregion
 
   // #region Actions
   async navigateToPage() {

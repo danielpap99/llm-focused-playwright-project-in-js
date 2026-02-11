@@ -1,22 +1,13 @@
 class LoginPage {
   constructor(page) {
     this.page = page;
-  }
 
-  // #region Locators
-  get usernameInput() {
-    return this.page.locator('[data-test="username"]');
+    // Locators
+    this.usernameInput = page.locator('[data-test="username"]');
+    this.passwordInput = page.locator('[data-test="password"]');
+    this.loginButton = page.locator('[data-test="login-button"]');
+    this.errorMessage = page.locator('[data-test="error"]');
   }
-  get passwordInput() {
-    return this.page.locator('[data-test="password"]');
-  }
-  get loginButton() {
-    return this.page.locator('[data-test="login-button"]');
-  }
-  get errorMessage() {
-    return this.page.locator('[data-test="error"]');
-  }
-  // #endregion
 
   // #region Actions
   async login(username, password) {
