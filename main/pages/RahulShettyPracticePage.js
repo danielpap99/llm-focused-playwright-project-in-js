@@ -6,6 +6,8 @@ class RahulShettyPracticePage {
     this.hideButton = page.locator("#hide-textbox");
     this.showButton = page.locator("#show-textbox");
     this.displayedTextBox = page.locator("#displayed-text");
+    this.nameInput = page.locator("#name");
+    this.alertButton = page.locator("#alertbtn");
   }
 
   // #region Actions
@@ -19,6 +21,14 @@ class RahulShettyPracticePage {
 
   async clickShowButton() {
     await this.showButton.click();
+  }
+
+  async enterName(name) {
+    await this.nameInput.fill(name);
+  }
+
+  async clickAlertButton() {
+    await this.alertButton.click();
   }
   // #endregion
 }

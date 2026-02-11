@@ -20,4 +20,19 @@ test.describe("Rahul Shetty Practice", () => {
 
     await expect(practicePage.displayedTextBox).toBeVisible();
   });
+
+  test("Alert button should show popup containing entered name", async ({ page }) => {
+    // Enter name in the input field
+    await practicePage.enterName("Daniel");
+
+    let dialogMessage = "";
+    page.on("dialog", async (dialog) => {
+      dialogMessage = dialog.message();
+      await dialog.accept();
+    });
+
+    await practicePage.clickAlertButton();
+
+    expect(dialogMessage).toContain("Daniel");
+  });
 });
