@@ -13,17 +13,7 @@ Always do the following:
 - NEVER use xPath or CSS selectors
 - Give tests, methods, locators etc descriptive names that make it obvious to the user what they each do
 
-For assert methods, don't name them as get methods because they don't sound natural when you assert. Just name them exactly as they are. For example, if it returns the text of a button, call it buttonText(). Create them in the following format (use these as an example):
-
-async shoppingCartItemCount() {
-return await this.removeBackpackButton.textContent();
-}
-
-async isRemoveBackpackButtonVisible() {
-return await this.removeBackpackButton.isVisible();
-}
-
-Never actually assert in the page object. You always assert in the test itself, by calling the assert methods
+Never actually assert in the page object. You always assert in the test itself directly on the locator.
 
 When creating new page objects, always create them in the same format as the other ones and keep all regions
 
@@ -45,6 +35,11 @@ NEVER EVER add hardcoded waitForTimeout() calls. Use Playwright's automatic wait
 
 For expect statements: If page object methods return promises (like async cartItemCount()), use await expect(await method()) to resolve the value before comparison. If methods return locators directly, use await expect(locator).toHaveText().
 
-ALWAYS try to use the locator-returning methods in expect statements. You can then assert directly on these locators in the tests. Only create value-returning methods when it makes sense in the context, for example with allTextContent()
+ALWAYS try to use the locators directly in tests (from the page object) for expect statements. You can assert directly on these locators in the tests. Only create value-returning methods when it makes sense in the context, for example with allTextContent()
+
+Page Objects should only have locators and actions, no assertions! Always encapsulate actions.
+
+When adding new locators, always use properties for simplicity
+eg. this.hideButton = page.locator('#hide-textbox'), but you may use get methods for dynamic / parameterised locators that change depending on variables/conditions.
 
 IMPORTANT: Only create what is specifically requested. If the user asks for ONE test, create only ONE test. If they ask for a specific method, create only that method. Do not add extra tests, methods, or functionality that wasn't explicitly requested.
