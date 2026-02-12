@@ -22,7 +22,6 @@ test.describe("Rahul Shetty Practice", () => {
   });
 
   test("Alert button should show popup containing entered name", async ({ page }) => {
-    // Enter name in the input field
     await practicePage.enterName("Daniel");
 
     let dialogMessage = "";
