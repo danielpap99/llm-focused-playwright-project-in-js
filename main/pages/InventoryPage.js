@@ -27,6 +27,11 @@ class InventoryPage {
     await this.addToCartBikeLightButton.click();
   }
 
+  async addProductToCart(dataTestId) {
+    const addToCartButton = this.page.locator(`[data-test="${dataTestId}"]`);
+    await addToCartButton.click();
+  }
+
   async goToCart() {
     await this.shoppingCartIcon.click();
   }
