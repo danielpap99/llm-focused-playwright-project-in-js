@@ -6,6 +6,7 @@ const CartPage = require("../main/pages/CartPage");
 const CheckoutInformationPage = require("../main/pages/CheckoutInformationPage");
 const CheckoutOverviewPage = require("../main/pages/CheckoutOverviewPage");
 const OrderCompletePage = require("../main/pages/OrderCompletePage");
+const ProductDetailPage = require("../main/pages/ProductDetailPage");
 
 const test = baseTest.extend({
   loginPage: async ({ page }, use) => {
@@ -30,6 +31,10 @@ const test = baseTest.extend({
 
   orderCompletePage: async ({ page }, use) => {
     await use(new OrderCompletePage(page));
+  },
+
+  productDetailPage: async ({ page }, use) => {
+    await use(new ProductDetailPage(page));
   }
 });
 
