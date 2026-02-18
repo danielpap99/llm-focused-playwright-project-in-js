@@ -34,4 +34,18 @@ test.describe("Rahul Shetty Practice", () => {
 
     expect(dialogMessage).toContain("Daniel");
   });
+
+  test("Should show 3 results when typing 'Hu' and allow selecting Hungary", async () => {
+    await practicePage.typeInAutocomplete("Hu");
+
+    await expect(practicePage.suggestionList).toBeVisible();
+    await expect(practicePage.suggestionItems).toHaveCount(3);
+
+    const suggestions = await practicePage.suggestionItems.allTextContents();
+    expect(suggestions).toEqual(expect.arrayContaining(["Bhutan", "Hungary", "Lithuania"]));
+
+    await practicePage.selectCountryFromSuggestion("Hungary");
+
+    await expect(practicePage.autocompleteInput).toHaveValue("Hungary");
+  });
 });
