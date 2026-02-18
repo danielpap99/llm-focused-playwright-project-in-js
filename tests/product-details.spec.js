@@ -1,4 +1,4 @@
-const { test, expect } = require("../base-test");
+const { test, expect } = require("./base-test");
 
 test.describe("Product Detail Pages", () => {
   test.beforeEach(async ({ loginPage, inventoryPage }) => {
