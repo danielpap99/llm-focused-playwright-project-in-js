@@ -9,7 +9,7 @@ test.describe("Login Functionality", () => {
     await expect(loginPage.loginButton).toBeVisible();
   });
 
-  test("User can log in successfully", async ({ page, loginPage, inventoryPage }) => {
+  test("User can log in successfully", async ({ loginPage, inventoryPage }) => {
     await loginPage.login("standard_user", "secret_sauce");
 
     await expect(inventoryPage.inventoryContainer).toBeVisible();
@@ -17,7 +17,7 @@ test.describe("Login Functionality", () => {
     await expect(inventoryPage.sortContainer).toBeVisible();
   });
 
-  test("User cannot log in with invalid username", async ({ page, loginPage, inventoryPage }) => {
+  test("User cannot log in with invalid username", async ({ loginPage, inventoryPage }) => {
     await loginPage.login("invalid_username", "secret_sauce");
 
     await expect(loginPage.errorMessage).toBeVisible();
@@ -25,7 +25,7 @@ test.describe("Login Functionality", () => {
     await expect(inventoryPage.inventoryContainer).not.toBeVisible();
   });
 
-  test("User cannot log in with valid username and invalid password", async ({ page, loginPage, inventoryPage }) => {
+  test("User cannot log in with valid username and invalid password", async ({ loginPage, inventoryPage }) => {
     await loginPage.login("standard_user", "invalid_password");
 
     await expect(loginPage.errorMessage).toBeVisible();
@@ -33,7 +33,7 @@ test.describe("Login Functionality", () => {
     await expect(inventoryPage.inventoryContainer).not.toBeVisible();
   });
 
-  test("User cannot log in with empty username and password fields", async ({ page, loginPage, inventoryPage }) => {
+  test("User cannot log in with empty username and password fields", async ({ loginPage, inventoryPage }) => {
     await loginPage.login("", "");
 
     await expect(loginPage.errorMessage).toBeVisible();

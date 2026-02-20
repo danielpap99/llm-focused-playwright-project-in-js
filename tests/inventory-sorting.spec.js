@@ -5,7 +5,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await loginPage.login("standard_user", "secret_sauce");
   });
 
-  test("Inventory is sorted alphabetically by default", async ({ page, loginPage, inventoryPage }) => {
+  test("Inventory is sorted alphabetically by default", async ({ inventoryPage }) => {
     await expect(inventoryPage.sortContainer).toHaveValue("az");
 
     const itemNames = await inventoryPage.inventoryItemNames.allTextContents();
@@ -14,7 +14,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(itemNames).toEqual(alphabeticalNames);
   });
 
-  test("Inventory is sorted correctly when Z to A option is selected", async ({ page, loginPage, inventoryPage }) => {
+  test("Inventory is sorted correctly when Z to A option is selected", async ({ inventoryPage }) => {
     const itemNames = await inventoryPage.inventoryItemNames.allTextContents();
     const expectedSortedNames = [...itemNames].sort((a, b) => b.localeCompare(a));
 
@@ -25,7 +25,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(itemNamesAfterSort).toEqual(expectedSortedNames);
   });
 
-  test("Inventory is sorted correctly when A to Z option is selected again", async ({ page, loginPage, inventoryPage }) => {
+  test("Inventory is sorted correctly when A to Z option is selected again", async ({ inventoryPage }) => {
     const itemNames = await inventoryPage.inventoryItemNames.allTextContents();
     const expectedAlphabeticalNames = [...itemNames].sort((a, b) => a.localeCompare(b));
     const expectedReverseAlphabeticalNames = [...itemNames].sort((a, b) => b.localeCompare(a));
@@ -41,7 +41,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(itemNamesAfterSort).toEqual(expectedAlphabeticalNames);
   });
 
-  test("Inventory is sorted correctly when descending price option is selected", async ({ page, loginPage, inventoryPage }) => {
+  test("Inventory is sorted correctly when descending price option is selected", async ({ inventoryPage }) => {
     const itemPrices = await inventoryPage.inventoryItemPrices.allTextContents();
     const numericPrices = itemPrices.map((price) => parseFloat(price.replace("$", "")));
     const expectedSortedPrices = [...numericPrices].sort((a, b) => a - b);
@@ -54,7 +54,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(numericPricesAfterSort).toEqual(expectedSortedPrices);
   });
 
-  test("Inventory is sorted correctly when ascending price option is selected", async ({ page, loginPage, inventoryPage }) => {
+  test("Inventory is sorted correctly when ascending price option is selected", async ({ inventoryPage }) => {
     const itemPrices = await inventoryPage.inventoryItemPrices.allTextContents();
     const numericPrices = itemPrices.map((price) => parseFloat(price.replace("$", "")));
     const expectedSortedPrices = [...numericPrices].sort((a, b) => b - a);
