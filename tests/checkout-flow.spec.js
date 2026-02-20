@@ -43,7 +43,7 @@ test.describe("Checkout Flow Functionality", () => {
       await orderCompletePage.backToProducts();
 
       await expect(inventoryPage.inventoryContainer).toBeVisible();
-      await expect(inventoryPage.shoppingCartIcon).toHaveText("1");
+      await expect(inventoryPage.shoppingCartIcon).toHaveText("");
     });
   }
 });
