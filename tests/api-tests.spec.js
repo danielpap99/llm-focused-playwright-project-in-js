@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const RegistrationPage = require("../main/pages/RegistrationPage");
+const RegistrationPage = require("../main/utils/APIUtils");
 
 test.describe("API Registration and UI Login", () => {
   let registrationPage;
