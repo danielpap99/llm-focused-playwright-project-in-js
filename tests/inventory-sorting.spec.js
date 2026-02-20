@@ -41,7 +41,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(itemNamesAfterSort).toEqual(expectedAlphabeticalNames);
   });
 
-  test("Inventory is sorted correctly when descending price option is selected", async ({ inventoryPage }) => {
+  test("Inventory is sorted correctly when ascending price option is selected", async ({ inventoryPage }) => {
     const itemPrices = await inventoryPage.inventoryItemPrices.allTextContents();
     const numericPrices = itemPrices.map((price) => parseFloat(price.replace("$", "")));
     const expectedSortedPrices = [...numericPrices].sort((a, b) => a - b);
@@ -54,7 +54,7 @@ test.describe("Inventory Sorting Functionality", () => {
     await expect(numericPricesAfterSort).toEqual(expectedSortedPrices);
   });
 
-  test("Inventory is sorted correctly when ascending price option is selected", async ({ inventoryPage }) => {
+  test("Inventory is sorted correctly when descending price option is selected", async ({ inventoryPage }) => {
     const itemPrices = await inventoryPage.inventoryItemPrices.allTextContents();
     const numericPrices = itemPrices.map((price) => parseFloat(price.replace("$", "")));
     const expectedSortedPrices = [...numericPrices].sort((a, b) => b - a);
