@@ -5,10 +5,10 @@ class CartPage {
     // Locators
     this.continueShoppingButton = page.locator('[data-test="continue-shopping"]');
     this.checkoutButton = page.locator('[data-test="checkout"]');
-    this.removeBackpackButton = page.locator('[data-test="remove-sauce-labs-backpack"]');
     this.cartItems = page.locator(".cart_item");
     this.cartItemNames = page.locator(".inventory_item_name");
     this.cartItemPrices = page.locator(".inventory_item_price");
+    this.removeButton = (productName) => page.locator(`[data-test="remove-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
   }
 
   // #region Actions
@@ -20,8 +20,9 @@ class CartPage {
     await this.checkoutButton.click();
   }
 
-  async removeBackpackFromCart() {
-    await this.removeBackpackButton.click();
+  async removeProductFromCart(productName) {
+    const removeButton = this.page.locator(`[data-test="remove-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
+    await removeButton.click();
   }
   // #endregion
 }

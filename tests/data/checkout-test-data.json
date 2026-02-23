@@ -1,7 +1,6 @@
 [
   {
     "productName": "Sauce Labs Backpack",
-    "dataTestId": "add-to-cart-sauce-labs-backpack",
     "expectedPrice": "$29.99",
     "expectedSubtotal": "Item total: $29.99",
     "expectedTax": "Tax: $2.40",
@@ -9,7 +8,6 @@
   },
   {
     "productName": "Sauce Labs Bike Light",
-    "dataTestId": "add-to-cart-sauce-labs-bike-light",
     "expectedPrice": "$9.99",
     "expectedSubtotal": "Item total: $9.99",
     "expectedTax": "Tax: $0.80",
@@ -17,7 +15,6 @@
   },
   {
     "productName": "Sauce Labs Bolt T-Shirt",
-    "dataTestId": "add-to-cart-sauce-labs-bolt-t-shirt",
     "expectedPrice": "$15.99",
     "expectedSubtotal": "Item total: $15.99",
     "expectedTax": "Tax: $1.28",
@@ -25,7 +22,6 @@
   },
   {
     "productName": "Sauce Labs Fleece Jacket",
-    "dataTestId": "add-to-cart-sauce-labs-fleece-jacket",
     "expectedPrice": "$49.99",
     "expectedSubtotal": "Item total: $49.99",
     "expectedTax": "Tax: $4.00",
@@ -33,7 +29,6 @@
   },
   {
     "productName": "Sauce Labs Onesie",
-    "dataTestId": "add-to-cart-sauce-labs-onesie",
     "expectedPrice": "$7.99",
     "expectedSubtotal": "Item total: $7.99",
     "expectedTax": "Tax: $0.64",
@@ -41,7 +36,6 @@
   },
   {
     "productName": "Test.allTheThings() T-Shirt (Red)",
-    "dataTestId": "add-to-cart-test.allthethings()-t-shirt-(red)",
     "expectedPrice": "$15.99",
     "expectedSubtotal": "Item total: $15.99",
     "expectedTax": "Tax: $1.28",

@@ -1,7 +1,7 @@
 const { test, expect } = require("./base-test");
 
 test.describe("Login Functionality", () => {
-  test("Log-in page loads correctly", async ({ page, loginPage }) => {
+  test("@Smoke Log-in page loads correctly", async ({ page, loginPage }) => {
     await page.goto("https://www.saucedemo.com/");
 
     await expect(loginPage.usernameInput).toBeVisible();
@@ -9,7 +9,7 @@ test.describe("Login Functionality", () => {
     await expect(loginPage.loginButton).toBeVisible();
   });
 
-  test("User can log in successfully", async ({ loginPage, inventoryPage }) => {
+  test("@Smoke User can log in successfully", async ({ loginPage, inventoryPage }) => {
     await loginPage.login("standard_user", "secret_sauce");
 
     await expect(inventoryPage.inventoryContainer).toBeVisible();

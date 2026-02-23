@@ -14,7 +14,7 @@ test.describe("Checkout Flow Functionality", () => {
       checkoutOverviewPage,
       orderCompletePage
     }) => {
-      await inventoryPage.addProductToCart(product.dataTestId);
+      await inventoryPage.addProductToCart(product.productName);
       await inventoryPage.goToCart();
 
       await expect(cartPage.cartItems).toHaveCount(1);

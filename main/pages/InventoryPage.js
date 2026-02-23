@@ -8,10 +8,8 @@ class InventoryPage {
     this.sortContainer = page.locator('[data-test="product-sort-container"]');
     this.inventoryItemNames = page.locator('[data-test="inventory-item-name"]');
     this.inventoryItemPrices = page.locator('[data-test="inventory-item-price"]');
-    this.addToCartBackpackButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
-    this.addToCartBikeLightButton = page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]');
-    this.removeBackpackButton = page.locator('[data-test="remove-sauce-labs-backpack"]');
-    this.removeBikeLightButton = page.locator('[data-test="remove-sauce-labs-bike-light"]');
+    this.addToBasketButton = (productName) => page.locator(`[data-test="add-to-cart-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
+    this.removeButton = (productName) => page.locator(`[data-test="remove-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
     this.backpackTitleLink = page.locator('[data-test="item-4-title-link"]');
     this.bikeLightImageLink = page.locator('[data-test="item-0-img-link"]');
   }
@@ -21,17 +19,14 @@ class InventoryPage {
     await this.sortContainer.selectOption(sortOption);
   }
 
-  async addBackpackToCart() {
-    await this.addToCartBackpackButton.click();
-  }
-
-  async addBikeLightToCart() {
-    await this.addToCartBikeLightButton.click();
-  }
-
-  async addProductToCart(dataTestId) {
-    const addToCartButton = this.page.locator(`[data-test="${dataTestId}"]`);
+  async addProductToCart(productName) {
+    const addToCartButton = this.page.locator(`[data-test="add-to-cart-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
     await addToCartButton.click();
+  }
+
+  async removeProductFromCart(productName) {
+    const removeButton = this.page.locator(`[data-test="remove-${productName.toLowerCase().replaceAll(" ", "-")}"]`);
+    await removeButton.click();
   }
 
   async goToCart() {
