@@ -1,9 +1,9 @@
-# MCP Playwright Project in JS/TS
+# Playwright MCP/CLI + LLM Project in JS
 **Created by Daniel Pap - https://www.linkedin.com/in/danielpap1999/**
 
 ## Project Overview
-This repository contains an automated Playwright test suite written in JS/TS. The project serves as a practice suite to explore MCP and AI-powered test automation posibilities, using a variety of tools
-such as Playwright test agents and Github Copilot. I focus on enhancing my skills in AI prompting to maximise the benefits of Generative AI in test automation, experimenting with different versions of tools that have unique capabilities, to see if AI-driven
+This repository contains an automated Playwright test suite written in JS. The project experiments with Playwright's MCP and its new Playwright CLI with SKILLS using LLM-powered coding agents to explore test automation possibilities. It uses a variety of tools
+such as Playwright's own test agents, Github Copilot, and Claude. I focus on enhancing my skills in AI prompting to maximise the benefits of Generative AI in test automation, experimenting with different versions of tools that have unique capabilities, to see if AI-driven
 automation can make QA Engineers more effective. My priority is to use these tools as much as possible, while making sure that the code they generate matches my expectations, follows clean code principles and naming conventions, and respects any project-specific rules such as utilising Page Object Model and using data-test ids whenever possible.
 Throughout the process I also experiment with Playwright's built-in testing tools via their VS Code Extension.
 
@@ -13,6 +13,7 @@ Throughout the process I also experiment with Playwright's built-in testing tool
 - playwright-test MCP server
 - Test Agents (generator, healer, planner)
 - Github Copilot
+- playwright-cli with skills (token-efficient alternative to MCP)
 - Codegen
 - Locator Picker
 - Trace Viewer
