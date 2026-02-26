@@ -40,4 +40,21 @@ test.describe("Login Functionality", () => {
     await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username is required");
     await expect(inventoryPage.inventoryContainer).not.toBeVisible();
   });
+
+  test("Locked out user cannot log in", async ({ loginPage, inventoryPage }) => {
+    await loginPage.login("locked_out_user", "secret_sauce");
+
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("Epic sadface: Sorry, this user has been locked out.");
+    await expect(inventoryPage.inventoryContainer).not.toBeVisible();
+  });
+
+  test("Locked out username with wrong password shows generic invalid credentials message", async ({ loginPage, inventoryPage }) => {
+    await loginPage.login("locked_out_user", "password123");
+
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username and password do not match any user in this service");
+    await expect(loginPage.errorMessage).not.toHaveText("Epic sadface: Sorry, this user has been locked out.");
+    await expect(inventoryPage.inventoryContainer).not.toBeVisible();
+  });
 });
