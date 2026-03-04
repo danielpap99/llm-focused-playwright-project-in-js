@@ -11,11 +11,16 @@ class RahulShettyPracticePage {
     this.autocompleteInput = page.getByRole("textbox", { name: "Type to Select Countries" });
     this.suggestionList = page.locator("ul.ui-menu");
     this.suggestionItems = page.locator("ul.ui-menu li");
+    this.openTabButton = page.locator("#opentab");
   }
 
   // #region Actions
   async navigateToPage() {
     await this.page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+  }
+
+  async clickOpenTabButton() {
+    await this.openTabButton.click();
   }
 
   async clickHideButton() {

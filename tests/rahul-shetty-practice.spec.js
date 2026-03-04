@@ -1,5 +1,6 @@
 const { test, expect } = require("@playwright/test");
 const RahulShettyPracticePage = require("../main/pages/RahulShettyPracticePage");
+const QAClickAcademyPage = require("../main/pages/QAClickAcademyPage");
 
 test.describe("Rahul Shetty Practice", () => {
   let practicePage;
@@ -7,6 +8,20 @@ test.describe("Rahul Shetty Practice", () => {
   test.beforeEach(async ({ page }) => {
     practicePage = new RahulShettyPracticePage(page);
     await practicePage.navigateToPage();
+  });
+
+  test("Clicking open tab button should open a new tab", async ({ page, context }) => {
+    const pagePromise = context.waitForEvent("page");
+
+    await practicePage.clickOpenTabButton();
+
+    const newPage = await pagePromise;
+    const newTab = new QAClickAcademyPage(newPage);
+
+    await newTab.waitForPageToLoad();
+    await expect(newPage).toHaveURL("https://www.qaclickacademy.com");
+
+    await newTab.close();
   });
 
   test("Hide button should hide the text box, and show button should show it again", async () => {
